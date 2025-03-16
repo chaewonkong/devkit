@@ -26,11 +26,26 @@ Currently Devkit is only installable with Go.
 $ go install github.com/chaewonkong/devkit/cmd/devkit@v0.1.1
 ```
 
-## Usage
+## Basic Usage
 
 ```bash
+# Display help
 $ devkit --help
+
+# Generate a UUID
+$ devkit uuid
+966716aa-afac-4ac4-8805-5086d899509c
+
+# Encode a URL
+$ devkit url --encode "http://example.com?name=John Doe&age=30"
+http%3A%2F%2Fexample.com%3Fname%3DJohn+Doe%26age%3D30
+
+# Decode a URL
+$ devkit url --decode "http%3A%2F%2Fexample.com%3Fname%3DJohn+Doe%26age%3D30"
+http://example.com?name=John Doe&age=30
 ```
+
+Other commands can be used in a similar manner. For more information, refer to the help documentation.
 
 ## License
 
