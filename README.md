@@ -23,7 +23,7 @@
 Currently Devkit is only installable with Go.
 
 ```bash
-$ go install github.com/chaewonkong/devkit@v0.1.0
+$ go install github.com/chaewonkong/devkit/cmd/devkit@v0.1.1
 ```
 
 ## Usage
@@ -34,4 +34,4 @@ $ devkit --help
 
 ## License
 
-MIT
+- MIT

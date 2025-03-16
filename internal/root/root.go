@@ -8,7 +8,7 @@ import (
 func NewRootCommand() *cobra.Command {
 	rootCmd := &cobra.Command{
 		Use:   "devkt",
-		Short: "DevKit is a powerful CLI tool designed to assist developers with common tasks.",
+		Short: "🧰 DevKit is a powerful CLI tool designed to assist developers with common tasks.",
 		Long: `DevKit is a Go-based CLI tool that provides developers with a collection of useful utilities to streamline common tasks. 
 		It helps developers perform various operations quickly and efficiently, boosting productivity.
 		`,
