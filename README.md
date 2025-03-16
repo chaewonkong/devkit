@@ -16,3 +16,6 @@
 ## Installation
 
 TBD
+
+## License
+MIT
