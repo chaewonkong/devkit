@@ -8,10 +8,11 @@
 
 - **UUID Generator**: Generate unique UUIDs.
 - **URL Encoder/Decoder**: Encode or decode URLs.
+- **Base64 Encoder/Decoder**: Encode or decode strings in Base64 format.
+
 
 ### Coming Soon
 
-- **Base64 Encoder/Decoder**: Encode or decode strings in Base64 format.
 - **CSV to JSON**: Convert CSV files to JSON format.
 - **YAML to JSON**: Convert YAML files to JSON format.
 - **JSON to YAML**: Convert JSON files to YAML format.
