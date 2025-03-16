@@ -1,9 +1,21 @@
 package url
 
 import (
+	"fmt"
 	"net/url"
 
 	"github.com/spf13/cobra"
+)
+
+const (
+	// ErrFlag is the error message when no flag is specified.
+	ErrFlag = "please specify either --encode or --decode flag"
+
+	// ErrDecode is the error message when decoding fails.
+	ErrDecode = "failed to decode the input URL"
+
+	// ErrNoArg is the error message when there's no arg provided
+	ErrNoArg = "please provide url"
 )
 
 // NewURLCommand creates a new cobra command for URL encoding and decoding.
@@ -16,25 +28,24 @@ func NewURLCommand() *cobra.Command {
 		Short: "URL encoding and decoding",
 		Long:  `Encode and decode URLs using the net/url package.`,
 		Args:  cobra.ExactArgs(1),
-		Run: func(cmd *cobra.Command, args []string) {
-			if !encodeFlag && !decodeFlag {
-				cmd.PrintErr("Please specify either --encode or --decode flag")
-				return
+		RunE: func(cmd *cobra.Command, args []string) error {
+			if !encodeFlag && !decodeFlag || encodeFlag && decodeFlag {
+				return fmt.Errorf(ErrFlag)
 			}
 			if encodeFlag {
 				encoded := url.QueryEscape(args[0])
 				cmd.Println(encoded)
-				return
+				return nil
 			}
 			if decodeFlag {
 				decoded, err := url.QueryUnescape(args[0])
 				if err != nil {
-					cmd.PrintErr(err)
-					return
+					return fmt.Errorf("%s: %w", ErrDecode, err)
 				}
 				cmd.Println(decoded)
-				return
+				return nil
 			}
+			return fmt.Errorf(ErrNoArg)
 		},
 	}
 

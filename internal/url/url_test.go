@@ -46,3 +46,38 @@ func TestURLCommand(t *testing.T) {
 		})
 	}
 }
+
+func TestURLCommandFail(t *testing.T) {
+	t.Run("Test URL command with no flags", func(t *testing.T) {
+		cmd := NewURLCommand()
+		cmd.SetArgs([]string{"example.com?name=devkt&age=25"})
+
+		mw := test.MockWriter{}
+		cmd.SetOut(&mw)
+
+		err := cmd.Execute()
+		assert.Error(t, err, ErrFlag)
+	})
+
+	t.Run("Test URL command with both flags", func(t *testing.T) {
+		cmd := NewURLCommand()
+		cmd.SetArgs([]string{"--encode", "--decode", "example.com?name=devkt&age=25"})
+
+		mw := test.MockWriter{}
+		cmd.SetOut(&mw)
+
+		err := cmd.Execute()
+		assert.Error(t, err, ErrFlag)
+	})
+
+	t.Run("Test URL command with no args", func(t *testing.T) {
+		cmd := NewURLCommand()
+		cmd.SetArgs([]string{"--decode"})
+
+		mw := test.MockWriter{}
+		cmd.SetOut(&mw)
+
+		err := cmd.Execute()
+		assert.Error(t, err)
+	})
+}
