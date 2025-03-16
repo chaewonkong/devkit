@@ -20,8 +20,11 @@
 
 
 ## Installation
+Currently Devkit is only installable with Go.
 
-TBD
+```bash
+$ go install github.com/chaewonkong/devkit@v0.1.0
+```
 
 ## Usage
 
