@@ -5,11 +5,11 @@ import (
 )
 
 const longTxt = `
-🧰 DevKit
-  
+# 🧰 DevKit
 
-  DevKit is a Go-based CLI tool that provides developers with a collection of useful utilities to streamline common tasks. 
-  It helps developers perform various operations quickly and efficiently, boosting productivity.
+DevKit is a Go-based CLI tool that provides developers with a collection of useful utilities to streamline common tasks.
+
+See [Github Repository](https://github.com/chaewonkong/devkit) for more details.
 `
 
 // NewRootCommand creates a new cobra command for the root command.
